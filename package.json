@@ -1,0 +1,23 @@
+{
+  "name": "simple-hello-world-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amigo-nishant/Simple-hello-world-nodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amigo-nishant/Simple-hello-world-nodeJS/issues"
+  },
+  "homepage": "https://github.com/amigo-nishant/Simple-hello-world-nodeJS#readme",
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^4.18.1"
+  }
+}
