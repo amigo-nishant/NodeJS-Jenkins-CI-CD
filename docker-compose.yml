@@ -7,4 +7,4 @@ services:
      - 9090:80
     
   database:
-    image: reddis
+    image: redis
