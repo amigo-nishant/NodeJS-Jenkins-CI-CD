@@ -18,10 +18,9 @@ pipeline {
     }
     stage ('Deploy to EC2') {
       steps {
-            ssh -i "/home/ec2-user/dev-server.pem" ec2-user@ec2-18-169-10-113.eu-west-2.compute.amazonaws.com{
-           }
-         }
-        }
-      }
-   }
+            ssh -i "/home/ec2-user/dev-server.pem" ec2-user@ec2-18-169-10-113.eu-west-2.compute.amazonaws.com}
+          }
+       }
+    }
+   
   
