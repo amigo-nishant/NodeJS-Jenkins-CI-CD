@@ -18,13 +18,16 @@ pipeline {
     }
     stage ('Deploy to EC2') {
       steps {
-          sshagent(credentials : ['id_name_added_underManageCredential']){
-            sh "ssh command"
-          }
+          steps{
+            sshagent(credentials:['18.169.10.113']){
+            sh 'ssh  -o StrictHostKeyChecking=no ec2-user@18.169.10.113 uptime "whoami" '
             sh 'aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 927491280662.dkr.ecr.eu-west-2.amazonaws.com'
             sh 'docker pull 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build:latest'
             sh 'docker run -d --name NodeJS-container -p 8080:4000 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build'
-        }
+            echo "success login"
+         }
+       }
+      }
     }
   }
 }
