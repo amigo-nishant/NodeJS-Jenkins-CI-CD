@@ -18,8 +18,8 @@ pipeline {
     }
     stage ('Deploy to EC2') {
       steps{
-            sshagent(credentials : ['80037d6c-5423-4993-b933-d99fb8b220b5']) {
-            sh "ssh -i "dev-server.pem" ec2-user@ec2-18-169-10-113.eu-west-2.compute.amazonaws.com"
+            sshagent(credentials : ['b92625a7-7ebc-43ef-bae1-c627d55c9c89']) {
+            ssh -i ec2-user@ec2-18-169-10-113.eu-west-2.compute.amazonaws.com
             //scp -i "jenkins.pem" -r <l> ec2-user@ec2-35-178-44-200.eu-west-2.compute.amazonaws.com:<server_file_path>
             //sh 'aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 927491280662.dkr.ecr.eu-west-2.amazonaws.com'
             //sh 'docker pull 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build:latest'
