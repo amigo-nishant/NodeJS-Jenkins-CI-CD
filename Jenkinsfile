@@ -1,6 +1,26 @@
 pipeline {
   agent any
   stages {
+    parameters {
+            choice( name: 'env', choices: ['DEV', 'PROD'] , description: "Choose ENV?" )
+    }
+        stage('switch time') {
+            steps {
+                script{
+                    switch (params.env) {
+                    case 'DEV':
+                        map = DEV
+                        break
+                    case 'PROD':
+                        map = PROD
+                        break
+                    default:
+                        map = []
+                        break
+                    }
+                }
+            }
+        }
     stage ('Build') {
       steps {
         sh 'printenv'
