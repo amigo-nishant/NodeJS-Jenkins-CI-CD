@@ -1,9 +1,9 @@
 pipeline {
   agent any
-  stages {
-    parameters {
+  parameters {
             choice( name: 'env', choices: ['DEV', 'PROD'] , description: "Choose ENV?" )
     }
+  stages {
         stage('switch time') {
             steps {
                 script{
