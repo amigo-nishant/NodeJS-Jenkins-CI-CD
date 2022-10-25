@@ -1,26 +1,10 @@
 pipeline {
   agent any
-  parameters {
-            choice( name: 'env', choices: ['DEV', 'PROD'] , description: "Choose ENV?" )
-    }
-  stages {
-        stage('switch time') {
-            steps {
-                script{
-                    switch (params.env) {
-                    case 'DEV':
-                        map = DEV
-                        break
-                    case 'PROD':
-                        map = PROD
-                        break
-                    default:
-                        map = []
-                        break
-                    }
-                }
-            }
-        }
+    properties([parameters([choice(choices: 'Master\nDEV\nPROD', description: 'Select branch to Build', name: 'Branch')])])
+  stage('SCM checkout'){
+    echo "Pulling changes from the branch ${params.Branch}"
+    git url: 'https://github.com/amigo-nishant/Simple-hello-world-nodeJS.git' branch: "${params.Branch}"
+  }
     stage ('Build') {
       steps {
         sh 'printenv'
