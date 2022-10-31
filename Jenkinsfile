@@ -1,6 +1,6 @@
 pipeline {
   agent any                                                     // The parameters specified in the Jenkinsfile will appear in the job only after the first run. Our first job run will fail as we will not be able to provide the parameter value through the job.
-   parameters {                                                 // Parameters --> build parameter allows us to pass data into our Jenkins jobs. Using build parameters, we can pass any data we want: git branch name, secret credentials etc. We can access a parameter at any stage of a pipeline. Accessing parameters in stages is pretty straightforward. We just have to use params.[NAME] in places where we need to substitute the parameter.
+   parameters {                                                 // build parameter allows us to pass data into our Jenkins jobs. Using build parameters, we can pass any data we want: git branch name, secret credentials etc. We can access a parameter at any stage of a pipeline. Accessing parameters in stages is pretty straightforward. We just have to use params.[NAME] in places where we need to substitute the parameter.
   choice choices: ['NODE', 'PYTHON'], name: 'Branch'            // choice --> it is parameter type and we have two choices NODE & PYTHON and the parameter name is Branch, and we access it in the stage as params.branch
 }
     stages{
