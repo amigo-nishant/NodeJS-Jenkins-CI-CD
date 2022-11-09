@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app01:
+   environment:
+     - TAG
+   image: 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build:$TAG
+   ports:
+   - "8084:4000"
+  app02:
+   image: 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build:$TAG
+   ports:
+   - "8085:4000"
+  app03:
+   image: 927491280662.dkr.ecr.eu-west-2.amazonaws.com/jenkins-pipeline-build:$TAG
+   ports:
+   - "8086:4000"
